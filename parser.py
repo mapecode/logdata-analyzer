@@ -1,7 +1,6 @@
 import argparse
 from LogParser import LogParser
 
-
 if __name__ == '__main__':
     args_parser = argparse.ArgumentParser(description='parse log file.')
     args_parser.add_argument('-f', '--file', help='Input file name', required=True)
@@ -12,4 +11,4 @@ if __name__ == '__main__':
 
     parser = LogParser(args.file)
 
-    print(parser.parse_file(args.init_datetime, args.end_datetime, args.hostname))
+    print(parser.get_connected_hostnames(args.init_datetime, args.end_datetime, args.hostname))
