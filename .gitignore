@@ -1,0 +1,36 @@
+# Byte-compiled / optimized Python files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Python environment
+venv/
+env/
+.venv/
+pip/
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+.coverage
+.tox/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# IDE files
+.vscode/
+.idea/
+*.iml
+*.pyc
+
+# Logs
+*.log
+
+# macOS
+.DS_Store
+
+# Compiled Python files
+*.pyc
+*.pyo
+*~
