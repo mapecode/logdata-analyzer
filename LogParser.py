@@ -9,7 +9,7 @@ class LogParser:
         self.connections = defaultdict(list)
         self.incoming = defaultdict(list)
 
-    def parse(self, init_datetime, end_datetime, hostname):
+    def parse_file(self, init_datetime, end_datetime, hostname):
         init_timestamp = datetime.strptime(init_datetime, "%Y-%m-%d %H:%M:%S").timestamp() * 1000
         end_timestamp = datetime.strptime(end_datetime, "%Y-%m-%d %H:%M:%S").timestamp() * 1000
 
@@ -34,3 +34,4 @@ class LogParser:
             print("There was an issue with converting the timestamp.")
         except Exception as e:
             print(f"An unexpected error occurred: {str(e)}")
+

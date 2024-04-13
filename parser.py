@@ -12,4 +12,4 @@ if __name__ == '__main__':
 
     parser = LogParser(args.file)
 
-    print(parser.parse(args.init_datetime, args.end_datetime, args.hostname))
+    print(parser.parse_file(args.init_datetime, args.end_datetime, args.hostname))
