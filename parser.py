@@ -11,4 +11,4 @@ if __name__ == '__main__':
 
     parser = LogParser(args.file)
 
-    print(parser.get_connected_hostnames(args.init_datetime, args.end_datetime, args.hostname))
+    print(parser.get_hostnames_connected(args.init_datetime, args.end_datetime, args.hostname))
