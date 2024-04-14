@@ -9,7 +9,7 @@ class LogParser:
         self.connections = defaultdict(list)
         self.incoming = defaultdict(list)
 
-    def get_hostname_stats(self, init_datetime, end_datetime, host):
+    def get_hostname_stats(self, init_datetime, end_datetime, host, file_last_position=0):
         connections = defaultdict(list)
         incoming = defaultdict(list)
 
@@ -18,6 +18,7 @@ class LogParser:
             end = datetime.strptime(end_datetime, "%Y-%m-%d %H:%M:%S").timestamp() * 1000
 
             with open(self.file_name, "r") as file:
+                file.seek(file_last_position)
                 for line in file:
                     parts = line.split(" ")
                     timestamp = int(parts[0])
@@ -39,11 +40,14 @@ class LogParser:
             outgoing_cnt = Counter(connections[host])
             most_connected_host = outgoing_cnt.most_common(1)[0][0] if outgoing_cnt else 'No connections'
 
-            return {
+            results = {
                 "connections_made": connections[host],
                 "connections_received": incoming[host],
                 "most_connected_host": most_connected_host
             }
+
+            return results, \
+                file.tell()  # returning last position in the file processed
 
         except FileNotFoundError:
             print("The given file does not exist.")
@@ -55,6 +59,6 @@ class LogParser:
             print(f"An unexpected error occurred: {str(e)}")
 
     def get_hostnames_connected(self, init_datetime, end_datetime, host):
-        results = self.get_hostname_stats(init_datetime, end_datetime, host)
+        results, _ = self.get_hostname_stats(init_datetime, end_datetime, host)
 
         return results['connections_made'] + results['connections_received']
