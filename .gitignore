@@ -34,3 +34,9 @@ pip-delete-this-directory.txt
 *.pyc
 *.pyo
 *~
+/dags/__init__.py
+/logdata_analyzer.egg-info/dependency_links.txt
+/input-file-10000.txt
+/logdata_analyzer.egg-info/PKG-INFO
+/logdata_analyzer.egg-info/SOURCES.txt
+/logdata_analyzer.egg-info/top_level.txt
