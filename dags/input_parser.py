@@ -38,7 +38,7 @@ def task_run_file_parser(**kwargs):
 
     kwargs['ti'].xcom_push(key='results', value=results)
     Variable.set("last_position", last_position)
-    Variable.set("execution_date", execution_date)
+    Variable.set("execution_date", next_execution_date)
 
     return results
 
